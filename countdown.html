@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contagem Regressiva</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #countdown {
+        font-size: 48px;
+        color: #000; /* Ajuste conforme necessário */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="countdown"></div>
+
+    <script>
+      function updateCountdown() {
+        const now = new Date();
+        const newYear = new Date(now.getFullYear() + 1, 0, 1);
+        const diff = newYear - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById(
+          "countdown"
+        ).textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+        if (diff <= 0) {
+          document.getElementById("countdown").textContent = "Feliz Ano Novo!";
+        }
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
