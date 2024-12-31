@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,21 +8,32 @@
       body {
         margin: 0;
         padding: 0;
-        background: transparent;
-        font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background: url("FelizAnoNovo.png") no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+        font-family: "Arial", sans-serif;
+        text-align: center;
+      }
+      h1 {
+        font-size: 64px;
+        color: white;
+        margin-bottom: 250px;
       }
       #countdown {
-        font-size: 48px;
-        color: #000; /* Ajuste conforme necessário */
+        font-size: 100px;
+        color: white;
       }
     </style>
   </head>
   <body>
-    <div id="countdown"></div>
+    <div>
+      <h1> </h1>
+      <div id="countdown">0h 0m 0s</div>
+    </div>
 
     <script>
       function updateCountdown() {
@@ -39,7 +50,7 @@
 
         document.getElementById(
           "countdown"
-        ).textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        ).textContent = `${hours}h ${minutes}m ${seconds}s`;
 
         if (diff <= 0) {
           document.getElementById("countdown").textContent = "Feliz Ano Novo!";
